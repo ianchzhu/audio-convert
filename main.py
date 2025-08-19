@@ -43,7 +43,7 @@ def process_audio(input_path, output_path):
         
         # 6. 导出为不同格式（改变文件特征）
         # 使用中等比特率，避免过高或过低
-        processed_audio.export(output_path, format="flac", bitrate="192k")
+        processed_audio.export(output_path, format="wav", bitrate="192k")
         
         return True
         
@@ -84,7 +84,7 @@ def simple_process_audio(input_path, output_path):
         )
         
         # 6. 导出为FLAC格式
-        processed_audio.export(output_path, format="flac")
+        processed_audio.export(output_path, format="wav")
         
         return True
         
@@ -105,14 +105,14 @@ def batch_process_audio(input_folder, output_folder):
             total_count += 1
             input_path = os.path.join(input_folder, filename)
             name, ext = os.path.splitext(filename)
-            output_path = os.path.join(output_folder, f"{name}.flac")
+            output_path = os.path.join(output_folder, f"{name}.wav")
             
             print(f"正在处理: {filename}")
             
             # 尝试使用简化版处理
             if simple_process_audio(input_path, output_path):
                 processed_count += 1
-                print(f"✓ 完成: {filename} → {name}_processed.flac")
+                print(f"✓ 完成: {filename} → {name}.wav")
             else:
                 print(f"✗ 失败: {filename}")
     
