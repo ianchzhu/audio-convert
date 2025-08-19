@@ -105,7 +105,7 @@ def batch_process_audio(input_folder, output_folder):
             total_count += 1
             input_path = os.path.join(input_folder, filename)
             name, ext = os.path.splitext(filename)
-            output_path = os.path.join(output_folder, f"{name}_processed.flac")
+            output_path = os.path.join(output_folder, f"{name}.flac")
             
             print(f"正在处理: {filename}")
             
