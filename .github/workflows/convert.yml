@@ -12,8 +12,10 @@ jobs:
       - uses: actions/setup-python@v5 
         with:
           python-version: 'pypy3.10' 
-      - run: pip install -r r.txt
-      - run: python main.py
+      - name: 安装依赖
+        run: pip install -r r.txt
+      - name: 处理音频
+        run: python main.py
       - name: Upload result
         uses: actions/upload-artifact@v4
         with:
