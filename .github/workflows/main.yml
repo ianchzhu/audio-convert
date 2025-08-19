@@ -1,0 +1,22 @@
+name: main
+on:
+  push:
+    branches: [main]
+    paths:
+      - "input/**"
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5 
+        with:
+          python-version: 'pypy3.10' 
+      - run: pip install -r r.txt
+      - run: python main.py
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: result
+          path: output/*
+      
