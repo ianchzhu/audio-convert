@@ -1,4 +1,2 @@
 pydub
-librosa
-soundfile
 numpy
